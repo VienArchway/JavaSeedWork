@@ -1,0 +1,28 @@
+{
+    "run": {
+        "default": "",
+        "items": [
+            {
+                "name": "archway.seedwork.springboot",
+                "projectName": "archway.seedwork.springboot",
+                "workingDirectory": "c:\\Users\\VienArchway\\Documents\\archway\\Plain.Archway.SeedWork.Java",
+                "args": [],
+                "vmargs": [],
+                "preLaunchTask": ""
+            }
+        ]
+    },
+    "debug": {
+        "default": "",
+        "items": [
+            {
+                "name": "archway.seedwork.springboot",
+                "projectName": "archway.seedwork.springboot",
+                "workingDirectory": "c:\\Users\\VienArchway\\Documents\\archway\\Plain.Archway.SeedWork.Java",
+                "args": [],
+                "vmargs": [],
+                "preLaunchTask": ""
+            }
+        ]
+    }
+}
