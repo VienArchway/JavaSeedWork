@@ -1,11 +1,9 @@
 package archway.seedwork.contracts;
 
-import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.util.StringUtils;
 
 @SpringBootApplication
 public class Contract {
@@ -23,7 +21,7 @@ public class Contract {
     }
 
     public static void requiresNotEmpty(String val, String message) {
-        if (val == null || isWhitespace(val)) {
+        if (val.isEmpty() || val == null || isWhitespace(val)) {
             throw new IllegalArgumentException(message); 
         }
     }

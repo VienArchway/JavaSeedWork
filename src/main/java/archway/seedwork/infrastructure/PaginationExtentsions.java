@@ -1,13 +1,22 @@
 package archway.seedwork.infrastructure;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.data.domain.PageRequest;
+
+import archway.seedwork.application.model.Pagination;
 
 @SpringBootApplication
 public class PaginationExtentsions {
 
-    public PageRequest gotoPage (int page, int size) {
-        PageRequest request = new PageRequest(page, size);
-        return request;
+    public List<String> Pagenate(List<String> query, Pagination page) {
+        query = new ArrayList<>();
+
+        query = page.hasOffSet() ? query.stream().skip(page.offset).collect(Collectors.toList()) : query;
+        query = page.hasLimit() ? query.stream().limit(page.limit).collect(Collectors.toList()) : query;
+        
+        return query;
     }
 }
