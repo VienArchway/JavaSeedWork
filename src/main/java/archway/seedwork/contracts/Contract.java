@@ -39,7 +39,7 @@ public class Contract {
         }
     }
 
-    public static void AssertArgumentLength(String val, int min, int max, String message) {
+    public static void assertArgumentLength(String val, int min, int max, String message) {
         int length = val.trim().length();
         if (length < min || length > max) {
             throw new IllegalArgumentException(message);

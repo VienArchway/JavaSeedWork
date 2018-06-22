@@ -6,19 +6,35 @@ import lombok.AllArgsConstructor;
 @SpringBootApplication
 @AllArgsConstructor
 public class Pagination {
-    public int limit;
-    public int offset;
+    public Integer limit;
+    public Integer offset;
 
     public boolean hasLimit() {
         return limit > 0;
+    }
+
+    public Integer getLimit() {
+        return this.limit;
+    }
+
+    public void setLimit(Integer limit) {
+        this.limit = limit;
     }
 
     public boolean hasOffSet() {
         return offset > 0;
     }
 
-    public Pagination(int offset, int limit) {
-        this.limit = 50;
+    public Integer getOffset() {
+        return this.offset;
+    }
+
+    public void setOffset(Integer offset) {
+        this.offset = offset;
+    }
+
+    public Pagination(Integer offset, Integer limit) {
+        this.limit = limit;
         this.offset = offset;
     }
 }

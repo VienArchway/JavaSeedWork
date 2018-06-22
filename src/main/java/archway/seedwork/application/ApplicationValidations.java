@@ -57,9 +57,6 @@ class ValidationResult {
 		return result;
 	}
 
-	/*
-	 * Get; Private Set for boolean
-	 */
 	public boolean isSucceeded() {
 		return this.succeeded;
 	}
@@ -68,9 +65,6 @@ class ValidationResult {
 		this.succeeded = succeeded;
 	}
 
-	/*
-	 * Get; Private Set for validationResult
-	 */
 	public ValidationResult getSuccess() {
 		return this.success;
 	}
@@ -79,9 +73,6 @@ class ValidationResult {
 		this.success = success;
 	}
 
-	/*
-	 * Get; Private Set for ErrorInfo
-	 */
 	public ErrorInfo getErrorInfo() {
 		return this.error;
 	}

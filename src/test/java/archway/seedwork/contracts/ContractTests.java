@@ -8,12 +8,9 @@ import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Required;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
-
 
 @RunWith(SpringRunner.class)
 public class ContractTests {
@@ -116,7 +113,7 @@ public class ContractTests {
 		String message = "Value must be between 6 and 8 characters!";
 
 		try {
-			Contract.AssertArgumentLength(value, min, max, message);
+			Contract.assertArgumentLength(value, min, max, message);
 			fail();
 		} catch (IllegalArgumentException e) {
 			assertEquals(e.getMessage(), message);
@@ -130,12 +127,32 @@ public class ContractTests {
 		int min = 3;
 		String message = "Value must be between 3 and 8 characters!";
 
-		Contract.AssertArgumentLength(value, min, max, message);
+		Contract.assertArgumentLength(value, min, max, message);
 	}
 
-	@RequiredArgsConstructor
 	class Product {
-		@NonNull public String productName;
-		@NonNull public DecimalFormat unitPrice;
+		
+		public String productName;
+		public DecimalFormat unitPrice;
+
+		public String getProductName() {
+			return this.productName;
+		}
+
+		@Required
+		
+		public void setProductName(String productName) {
+			this.productName = productName;
+		}
+
+		public DecimalFormat getUnitPrice() {
+			return this.unitPrice;
+		}
+
+		@Required
+		public void setUnitPrice(DecimalFormat unitPrice) {
+			this.unitPrice = unitPrice;
+		}
+
 	}
 }

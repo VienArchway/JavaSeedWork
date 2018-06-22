@@ -22,10 +22,6 @@ public class PaginationExtentsionsTests {
 
 	private final List<String> data;
 
-	public List<String> getData() {
-		return this.data;
-	}
-
 	public PaginationExtentsionsTests() {
 		data = new ArrayList<String>();
 		data.add("C#");
@@ -38,14 +34,32 @@ public class PaginationExtentsionsTests {
 	}
 
 	@Test
-	public void Pagenate_With_Offset_Limit_NotNull() {
-		PaginationExtentsions paginate = new PaginationExtentsions();
-		Stream<String> stream = data.stream();
-		Pagination page = new Pagination(5,3);
+	public void pagenate_With_Offset_Limit_NotNull() {
+		Pagination page = new Pagination(3,5);
 
-		
+		List<String> result = PaginationExtentsions.Pagenate(data, page);
+		long l = result.stream().sorted().count();
 
-		assertEquals(3, paginate.Pagenate(data, page));
+		assertEquals(4, l);
+	}
 
+	@Test
+	public void pagenate_With_Offset_Null() {
+		Pagination page = new Pagination(null, 5);
+
+		List<String> result = PaginationExtentsions.Pagenate(data, page);
+		long l = result.stream().sorted().count();
+
+		assertEquals(5, l);
+	}
+
+	@Test
+	public void pagenate_With_Limit_Null() {
+		Pagination page = new Pagination(2, null);
+
+		List<String> result = PaginationExtentsions.Pagenate(data, page);
+		long l = result.stream().sorted().count();
+
+		assertEquals(5, l);
 	}
 }

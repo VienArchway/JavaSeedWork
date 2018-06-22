@@ -11,11 +11,19 @@ import archway.seedwork.application.model.Pagination;
 @SpringBootApplication
 public class PaginationExtentsions {
 
-    public List<String> Pagenate(List<String> query, Pagination page) {
-        query = new ArrayList<>();
+    public static <T> List<T> Pagenate(List<T> query, Pagination page) {
+        
+        if(page.getOffset() == null) {
+            query = query.stream().limit(page.limit.intValue()).collect(Collectors.toList());
+        } else if (page.getLimit() == null) {
+            query = query.stream().skip(page.offset.intValue()).collect(Collectors.toList());
+        } else {
+            query = query.stream().skip(page.offset.intValue()).collect(Collectors.toList());
+            query = query.stream().limit(page.limit.intValue()).collect(Collectors.toList());
+        }
 
-        query = page.hasOffSet() ? query.stream().skip(page.offset).collect(Collectors.toList()) : query;
-        query = page.hasLimit() ? query.stream().limit(page.limit).collect(Collectors.toList()) : query;
+        // query = page.hasOffSet() ? query.stream().skip(page.offset.intValue()).collect(Collectors.toList()) : query;
+        // query = page.hasLimit() ? query.stream().limit(page.limit.intValue()).collect(Collectors.toList()) : query;
         
         return query;
     }
