@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Persol Application - List TMST207</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.3.5/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen"/>
+
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"
+            th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
+
+    <link href="../../static/css/spring-core.css"
+          th:href="@{css/spring-core.css}" rel="stylesheet" media="screen"/>
+</head>
+<body>
+<div class="container">
+    <div th:if="${not #lists.isEmpty(tmst207)}">
+        <h2>List</h2>
+        <table class="table table-striped">
+            <tr>
+                <th>ASSYULID</th>
+                <th>ASSYULNM</th>
+                <th>ASORT</th>
+                <th>ABTDT</th>
+                <th>ACRDT</th>
+                <th>ACRID</th>
+                <th>AUPDT</th>
+                <th>AUPID</th>
+                <th>ADLDT</th>
+                <th>ADLID</th>
+                <th>ADLFL</th>
+            </tr>
+            <tr th:each="tmst207 : ${tmst207}">
+                <td th:text="${tmst207.ASSYULID}"></td>
+                <td th:text="${tmst207.ASSYULNM}"></td>
+                <td th:text="${tmst207.ASORT}"></td>
+                <td th:text="${tmst207.ABTDT}"></td>
+                <td th:text="${tmst207.ACRDT}"></td>
+                <td th:text="${tmst207.ACRID}"></td>
+                <td th:text="${tmst207.AUPDT}"></td>
+                <td th:text="${tmst207.AUPID}"></td>
+                <td th:text="${tmst207.ADLDT}"></td>
+                <td th:text="${tmst207.ADLID}"></td>
+                <td th:text="${tmst207.ADLFL}"></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>
